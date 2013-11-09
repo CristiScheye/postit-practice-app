@@ -1,0 +1,11 @@
+<h2>New Category</h2>
+
+
+<br/>
+<%= form_for @category do |f| %>
+	<%= f.label :category_name %>
+	<%= f.text_field :name %>
+	<br/>
+	<%= f.submit "Submit New Category", class: "btn btn-inverse" %>
+<% end %>
+
