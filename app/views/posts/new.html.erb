@@ -1,3 +1,7 @@
-<h2>New Post</h2>
+<%= render 'shared/content_title', title: 'New Post' %>
+
+<% if @post.errors.any? %>
+	<%= render 'shared/errors', errors: @post.errors.full_messages %>
+<% end %>
 
 <%= render 'form' %>

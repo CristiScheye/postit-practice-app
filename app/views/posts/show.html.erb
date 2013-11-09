@@ -1,3 +1,4 @@
-<h3><%= @post.title %></h3>
-<p><%= @post.url %></p>
+<%= render @post.categories %>
+<h3><%= link_to @post.title, @post.url %></h3>
 <p><%= @post.description %> </p>
+<hr/>
