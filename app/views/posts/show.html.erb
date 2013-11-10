@@ -1,4 +1,26 @@
 <%= render @post.categories %>
 <h3><%= link_to @post.title, @post.url %></h3>
 <p><%= @post.description %> </p>
+<%= link_to "Edit", edit_post_path(@post) %>
 <hr/>
+
+<%= form_for [@post, @comment] do |f| %>
+	<%= render 'shared/errors', obj: @comment %>
+
+	<%= f.hidden_field :post_id, value: @post.id %>
+	<%= f.label :body, 'Share your thoughts...' %>
+	<%= f.text_area :body, rows: 3, class: 'span4' %>
+	<br/>
+	<%= f.submit "Create Comment", class: "btn btn-primary" %>
+<% end %>
+
+<% @post.comments.each do |comment| %>
+	<div class="row">
+		<div class="span6 well">
+			<p>"<%= comment.body %>"</p>
+			<p><span class="quiet">by </span><%= comment.user.username %>
+				<small> at <%= comment.created_at %></small>
+		</div>
+
+	</div>
+<% end %>

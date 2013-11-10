@@ -1,12 +1,11 @@
 <%= render 'shared/content_title', title: 'New Category' %>
 
-<% if @category.errors.any? %>
-	<%= render 'shared/errors', errors: @category.errors.full_messages %>
-<% end %>
+<%= render 'shared/errors', obj: @category %>
+
 
 <br/>
 <%= form_for @category do |f| %>
-	<%= f.label :category_name %>
+	<%= f.label :name, 'Category Name' %>
 	<%= f.text_field :name %>
 	<br/>
 	<%= f.submit "Submit New Category", class: "btn btn-inverse" %>

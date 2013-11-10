@@ -8,6 +8,7 @@ def index
 end
 
 def show
+	@comment = Comment.new()
 end
 
 def new
@@ -16,6 +17,7 @@ end
 
 def create
 	@post = Post.new(post_params)
+	@post.user_id = 1 #Change later, after authentication!
 
 	if @post.save
 		flash[:notice] = "Your post was successfully saved"
@@ -47,28 +49,5 @@ end
 def set_post
 	@post = Post.find(params[:id])
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

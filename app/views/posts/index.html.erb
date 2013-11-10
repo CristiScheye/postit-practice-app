@@ -6,9 +6,13 @@
   <div class="row">
   	<div class="span8 well">
       <%= render post.categories %>      
-  		<h4><%= link_to post.title, post.url %></h4>
+  		<h4><%= link_to post.title, "http://#{post.url}" %></h4>
       <p><%= post.description %></p>
-      <p><span class="quiet">posted by </span><%= User.find(post.user_id).username %> <small>at <%= post.created_at %></small></p>
+      <p>
+        <span class="quiet">posted by </span><%= post.user.username %>
+        <small>at <%= post.created_at %></small>
+      </p>
+      <p><%= link_to "#{post.comments.size} comments", post_path(post) %> </p>
   	</div>
   </div>
 <% end %>
