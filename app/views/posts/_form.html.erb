@@ -1,11 +1,23 @@
-<%= form_for @post do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<br/>
-	<%= f.label :url %>
-	<%= f.text_field :url %>
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-	<br/>
-	<%= f.submit "Submit Post", class: "btn btn-inverse" %>
-<% end %>
+
+<div class="well">
+  <%= form_for @post do |f| %>
+    <div class="control-group">
+    	<%= f.label :title %>
+    	<%= f.text_field :title %>
+    </div>
+    <div class="control-group">
+    	<%= f.label :url %>
+    	<%= f.text_field :url %>
+    </div>
+    <div class="control-group">
+    	<%= f.label :description %>
+    	<%= f.text_area :description %>
+    </div>
+    <div class="control-group">
+      <div class="checkbox inline">
+        <%= collection_check_boxes :post, :category_ids, Category.all, :id, :name %>
+      </div>
+    </div>
+    	<%= f.submit "Submit Post", class: "btn btn-inverse" %>
+  <% end %>
+</div>
