@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+	<div class="well">
+		Username: <%= user.username %>
+		<br/>
+		Added: <%= user.created_at %>
+	</div>
+<% end %>

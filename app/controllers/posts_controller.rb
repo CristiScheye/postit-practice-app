@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 before_action :set_post, only: [:show, :edit, :update]
+before_action :check_login, except: [:index, :show]
 
 
 def index
@@ -17,7 +18,7 @@ end
 
 def create
 	@post = Post.new(post_params)
-	@post.user_id = 1 #Change later, after authentication!
+	@post.user = @current_user
 
 	if @post.save
 		flash[:notice] = "Your post was successfully saved"

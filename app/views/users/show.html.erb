@@ -1,0 +1,6 @@
+<%= render 'shared/content_title', title: 'User Profile' %>
+
+<div class="well" >
+	<p>Username: <%= @user.username %></p>
+	<p><%= link_to 'Change Username or Password', edit_user_path(@user) %></p>
+</div>

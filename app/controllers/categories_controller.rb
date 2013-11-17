@@ -1,15 +1,18 @@
 class CategoriesController < ApplicationController
-
+	before_action :check_login, except: [:show]
 
 	def show
 		@category = Category.find(params[:id])
 	end
 
 	def new
+
 		@category = Category.new
+
 	end
 
 	def create
+
 		@category = Category.new(category_params)
 
 		if @category.save
@@ -18,6 +21,7 @@ class CategoriesController < ApplicationController
 		else
 			render :new
 		end
+
 	end
 	private
 
