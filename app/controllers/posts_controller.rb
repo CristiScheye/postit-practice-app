@@ -41,6 +41,18 @@ def update
 	end
 end
 
+def vote
+	@vote = Vote.new(vote: params[:vote], user: @current_user, voteable_type: 'Post', voteable_id: params[:id])
+
+	if @vote.save
+		flash[:notice] = "Your vote has been saved"
+		redirect_to posts_path
+	else
+		flash[:notice] = "Your vote was not saved"
+		redirect_to
+	end
+end
+
 
 private
 
