@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			flash[:notice] = "You've successfully registered"
-			redirect_to root_path
+			redirect_to login_path
 		else
 			render :new
 		end

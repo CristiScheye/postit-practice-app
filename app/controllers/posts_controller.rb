@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_action :set_post, only: [:show, :edit, :update]
+before_action :set_post, only: [:show, :edit, :update, :vote]
 before_action :check_login, except: [:index, :show]
 
 
@@ -42,15 +42,9 @@ def update
 end
 
 def vote
-	@vote = Vote.new(vote: params[:vote], user: @current_user, voteable_type: 'Post', voteable_id: params[:id])
+	Vote.create(vote: params[:vote], user: @current_user, voteable: @post)
+	redirect_to post_path(@post)
 
-	if @vote.save
-		flash[:notice] = "Your vote has been saved"
-		redirect_to posts_path
-	else
-		flash[:notice] = "Your vote was not saved"
-		redirect_to
-	end
 end
 
 
