@@ -42,9 +42,14 @@ def update
 end
 
 def vote
-	Vote.create(vote: params[:vote], user: @current_user, voteable: @post)
-	redirect_to post_path(@post)
+	vote = Vote.new(vote: params[:vote], user: @current_user, voteable: @post)
 
+	if vote.save
+		flash[:notice] = "Vote successful"
+	else
+		flash[:alert] = "Already voted"
+	end
+	redirect_to posts_path
 end
 
 

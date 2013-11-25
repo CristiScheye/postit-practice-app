@@ -1,0 +1,78 @@
+commit 22b583bbabb9397ce7054e9fe08c6db90a815c1a
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Fri Nov 22 20:48:38 2013 -0800
+
+    Add voting to posts
+
+commit fbcf14fbb048a7a2801db6c55c9d716e677f1085
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Sun Nov 17 13:19:27 2013 -0800
+
+    Authentication and login/logout routes
+
+commit c34fe9a25ba82102f0edfeef8e5ed0fd59709aff
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Sat Nov 16 09:55:37 2013 -0800
+
+    Adding password to users. Adding bcrypt gem to Gemfile. Adding views for user registration.
+
+commit 60ca07bfc67cf8296fd127d1857447b76457aac5
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Tue Nov 12 22:56:40 2013 -0800
+
+    Adding post partial. Adding helper methods for improved time formatting and correct urls.
+
+commit fbd1183821b4d305f5eb7a8fa630b56ee5011068
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Tue Nov 12 08:10:53 2013 -0800
+
+    Making category badges into links which show all the posts within that category.
+
+commit 627e277aae90ca2f2cc66d22aee8a9095bd176d9
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Mon Nov 11 20:21:55 2013 -0800
+
+    Adding category drop down from navigation bar
+
+commit 58271e41ff5e15cc031a97282ab52c816fe2c8ab
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Sun Nov 10 10:31:33 2013 -0800
+
+    Adding nested comments resource and refacting for better usability.
+
+commit cb0d37c3d459bb47312135af9195136c5a62133f
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Fri Nov 8 20:50:50 2013 -0800
+
+    Refactoring code. Adding categories rails console
+    sdf
+
+commit da8a9b614fbadf0fcc3588721d398aef6d20e011
+Author: Cristi Scheye <cristi.scheye@gmail.com>
+Date:   Fri Nov 8 19:43:16 2013 -0800
+
+    Adding category controller, routes, and views.
+
+commit 38783e4855a59909bd99b4cf968c13fec1f0df14
+Author: Cristi <cristi@cristi-Satellite-L755D.(none)>
+Date:   Fri Nov 8 17:10:38 2013 -0800
+
+    Adding remaining actions to posts controller. Also linking each post in the index to show and edit pages.
+
+commit 0334cefd0bf89ba01c9a083a1f359b6d838fdbed
+Author: Cristi <cristi@cristi-Satellite-L755D.(none)>
+Date:   Fri Nov 8 12:05:29 2013 -0800
+
+    Adding comments resources to routes
+
+commit 9532cae89aa92665b3cf1e73046e3870f4a65b39
+Author: Cristi <cristi@cristi-Satellite-L755D.(none)>
+Date:   Sat Nov 2 20:53:19 2013 -0700
+
+    Adding category, comment, post, and user tables to database. Adding associations between tables.
+
+commit 7c9c162ab7e179d8b8326ac5db5b434d07a9038e
+Author: Cristi <cristi@cristi-Satellite-L755D.(none)>
+Date:   Wed Oct 30 22:10:59 2013 -0700
+
+    Initial commit
