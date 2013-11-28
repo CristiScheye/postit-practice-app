@@ -1,0 +1,24 @@
+
+<div class="span0 well text-center" >
+  <% if logged_in? %>
+    <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post' do %>
+      <i class="icon-chevron-up"></i>
+    <% end %>
+  <% end %>
+  <br/>
+  <%= pluralize(vote_count(comment), 'vote') %>
+  <br/>
+  <% if logged_in? %>
+    <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %>
+      <i class="icon-chevron-down"></i>
+    <% end %>
+  <% end %>
+</div>
+<div class="row">
+  <div class="span6 well">
+    <p>"<%= comment.body %>" <%= link_to("on #{comment.post.title}", post_path(comment.post)) if show_post == true %></p>
+    <p><span class="quiet">by </span><%= comment.user.username %>
+      <small><%= format_time(comment.created_at) %></small>
+  </div>
+
+</div>

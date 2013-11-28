@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
 
-  def set_user
+  def current_user
   	@current_user =  User.find(session[:user_id]) if session[:user_id]
   end
 
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_login
-  	set_user
+  	current_user
 
   	if !logged_in?
   		flash[:notice] = "Sorry, you must be logged in to do that."
