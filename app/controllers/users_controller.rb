@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 	before_action :check_login, except: [:new, :create]
-	before_action :validate_user, only: [:edit]
+	before_action :set_user, except: [:new, :create]
+	before_action :validate_user, only: [:edit, :update]
 
 	def show
-		@user = User.find(params[:id])
 	end
 
 	def new
@@ -23,11 +23,9 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = current_user
 	end
 
 	def update
-		@user = current_user
 
 		if @user.update(user_params)
 			flash[:notice] = "Your info was successfully updated"
@@ -44,15 +42,18 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:username, :password)
 	end
 
+	def set_user
+		@user = User.find(params[:id])
+	end
+
 	def validate_user
-		@user = current_user
 
 		if !logged_in?
 			flash[:notice] = "Please log in to see profile"
 			redirect_to login_path
 		end
 
-		if @user != User.find(session[:user_id])
+		if @user != current_user
 			flash[:alert] = "Access Denied"
 			redirect_to root_path
 		end

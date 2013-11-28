@@ -1,3 +1,4 @@
+<% show_post ||= false %>
 
 <div class="span0 well text-center" >
   <% if logged_in? %>
@@ -16,7 +17,7 @@
 </div>
 <div class="row">
   <div class="span6 well">
-    <p>"<%= comment.body %>" <%= link_to("on #{comment.post.title}", post_path(comment.post)) if show_post == true %></p>
+    <p>"<%= comment.body %>" <small>on </small><%= link_to( comment.post.title, post_path(comment.post)) if show_post %></p>
     <p><span class="quiet">by </span><%= link_to comment.user.username , user_path(comment.user) %>
       <small><%= format_time(comment.created_at) %></small>
   </div>

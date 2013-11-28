@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 	def create
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.build(params.require(:comment).permit!)
-		@comment.user = @current_user
+		@comment.user = current_user
 
 		if @comment.save
 			flash[:notice] = "Your comment was successfully saved"
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 	def vote
 		comment = Comment.find(params[:id])
 		post = Post.find(params[:post_id])
-		Vote.create(vote: params[:vote], user: @current_user, voteable: comment)
+		Vote.create(vote: params[:vote], user: current_user, voteable: comment)
 
 		redirect_to post_path(post)
 

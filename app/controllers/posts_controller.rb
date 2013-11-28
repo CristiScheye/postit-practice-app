@@ -18,7 +18,7 @@ end
 
 def create
 	@post = Post.new(post_params)
-	@post.user = @current_user
+	@post.user = current_user
 
 	if @post.save
 		flash[:notice] = "Your post was successfully saved"
@@ -42,7 +42,7 @@ def update
 end
 
 def vote
-	vote = Vote.new(vote: params[:vote], user: @current_user, voteable: @post)
+	vote = Vote.new(vote: params[:vote], user: current_user, voteable: @post)
 
 	if vote.save
 		flash[:notice] = "Vote successful"

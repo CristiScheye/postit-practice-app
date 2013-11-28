@@ -4,22 +4,20 @@
 	<p>Username: <%= @user.username %></p>
 </div>
 
-<div class="tabbable">
-  <ul class="nav nav-tabs">
-    <li class="active">
-      <a href="#post_tab" data-toggle="tab">Posts (<%= @user.posts.count %>)</a>
-    </li>
-    <li>
-      <a href="#comment_tab" data-toggle="tab">Comments (<%= @user.comments.count %>)</a>
-    </li>
-  </ul>
 
-  <div class="tab-content">
-    <div class="tab-pane active" id="post_tab">
-      <%= render @user.posts %>
-    </div>
-    <div class="tab-pane" id="comment_tab">
-      <%= render @user.comments, show_post: true %>
-    </div>
-  </div>
-</div>
+<!-- Rails helpers option -->
+
+<ul class="nav nav-tabs">
+  <li class="<%= 'active' if params[:tab].nil? %>">
+    <%= link_to "Posts (#{@user.posts.count})", user_path(@user) %>
+  </li>
+  <li class="<%= 'active' if params[:tab] == 'comments'%>">
+    <%= link_to "Comments (#{@user.comments.count})", user_path(@user, tab: 'comments') %>
+  </li>
+</ul>
+
+<% if params[:tab].nil? %>
+  <%= render @user.posts %>
+<% elsif params[:tab] == 'comments' %>
+  <%= render @user.comments, show_post: true %>
+<% end %>
