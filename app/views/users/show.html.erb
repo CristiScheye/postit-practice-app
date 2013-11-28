@@ -7,10 +7,10 @@
 <div class="tabbable">
   <ul class="nav nav-tabs">
     <li class="active">
-      <a href="#post_tab" data-toggle="tab">Posts</a>
+      <a href="#post_tab" data-toggle="tab">Posts (<%= @user.posts.count %>)</a>
     </li>
     <li>
-      <a href="#comment_tab" data-toggle="tab">Comments</a>
+      <a href="#comment_tab" data-toggle="tab">Comments (<%= @user.comments.count %>)</a>
     </li>
   </ul>
 
