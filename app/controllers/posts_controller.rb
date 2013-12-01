@@ -49,7 +49,7 @@ def vote
 	else
 		flash[:alert] = "Already voted"
 	end
-	redirect_to posts_path
+	redirect_to :back
 end
 
 

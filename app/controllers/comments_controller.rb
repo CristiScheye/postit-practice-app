@@ -17,9 +17,15 @@ class CommentsController < ApplicationController
 	def vote
 		comment = Comment.find(params[:id])
 		post = Post.find(params[:post_id])
-		Vote.create(vote: params[:vote], user: current_user, voteable: comment)
+		vote = Vote.new(vote: params[:vote], user: current_user, voteable: comment)
 
-		redirect_to post_path(post)
+		if vote.save
+			flash[:notice] = "Vote successful"
+		else
+			flash[:alert] = "Already Voted"
+		end
+
+		redirect_to :back
 
 	end
 end
