@@ -42,14 +42,13 @@ def update
 end
 
 def vote
-	vote = Vote.new(vote: params[:vote], user: current_user, voteable: @post)
+	@vote = Vote.create(vote: params[:vote], user: current_user, voteable: @post)
 
-	if vote.save
-		flash[:notice] = "Vote successful"
-	else
-		flash[:alert] = "Already voted"
+	respond_to do |format|
+		format.html { redirect_to :back, notice: "Your vote was successfully saved"}
+		format.js 
 	end
-	redirect_to :back
+
 end
 
 

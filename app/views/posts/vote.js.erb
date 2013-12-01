@@ -1,0 +1,7 @@
+if ( <%= @vote.id.nil? %> ) {
+  alert('You have already voted for that'); 
+}
+
+$('#post_<%= @post.id %>_votes').html('<%= pluralize(vote_count(@post), "vote") %>');
+
+

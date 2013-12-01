@@ -15,17 +15,14 @@ class CommentsController < ApplicationController
 	end
 
 	def vote
-		comment = Comment.find(params[:id])
-		post = Post.find(params[:post_id])
-		vote = Vote.new(vote: params[:vote], user: current_user, voteable: comment)
+		@comment = Comment.find(params[:id])
+		@post = Post.find(params[:post_id])
+		@vote = Vote.create(vote: params[:vote], user: current_user, voteable: @comment)
 
-		if vote.save
-			flash[:notice] = "Vote successful"
-		else
-			flash[:alert] = "Already Voted"
+		respond_to do |format|
+			format.html { redirect_to :back, notice: "Your vote was successfully saved"}
+			format.js
 		end
-
-		redirect_to :back
 
 	end
 end
