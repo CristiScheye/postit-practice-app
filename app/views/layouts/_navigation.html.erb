@@ -34,7 +34,8 @@
 
   <div class="btn-group nav_item">
     <%= link_to '#', class: 'btn dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-      Profile <span class='caret'></span>
+      <%= current_user.username %>'s Profile
+      <span class='caret'></span>
     <% end %>
     <ul class="dropdown-menu">
       <li><%= link_to user_path(session[:user_id]) do %>

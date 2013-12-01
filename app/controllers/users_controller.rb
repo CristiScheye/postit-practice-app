@@ -14,8 +14,9 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
-			flash[:notice] = "You've successfully registered"
-			redirect_to login_path
+			flash[:notice] = "You've successfully registered. You are now logged in."
+			session[:user_id] = @user.id
+			redirect_to root_path
 		else
 			render :new
 		end
