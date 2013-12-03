@@ -10,4 +10,14 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true
 	validates :url, presence: true
 	validates :description, presence: true
+
+  before_save :make_slug
+
+  def make_slug
+    self.slug = self.title.gsub(/[\s\W]/,'-').downcase
+  end
+
+  def to_param
+    self.slug
+  end
 end

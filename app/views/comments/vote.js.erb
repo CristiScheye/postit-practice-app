@@ -1,4 +1,4 @@
-if ( <%= @vote.id.nil? %> ) {
+if ( <%= !@vote.valid? %> ) {
   alert('You have already voted for that'); 
 }
 

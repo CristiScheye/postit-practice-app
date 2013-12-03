@@ -9,7 +9,7 @@ def index
 end
 
 def show
-	@comment = Comment.new()
+	@comment = Comment.new
 end
 
 def new
@@ -59,7 +59,7 @@ def post_params
 end
 
 def set_post
-	@post = Post.find(params[:id])
+	@post = Post.find_by(slug: params[:id])
 end
 
 end
