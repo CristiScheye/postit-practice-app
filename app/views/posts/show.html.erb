@@ -1,7 +1,9 @@
 <%= render @post.categories %>
 <h3><%= link_to @post.title, @post.url %></h3>
 <p><%= @post.description %> </p>
-<%= link_to "Edit", edit_post_path(@post) %>
+<% if admin? || @post.user == current_user %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+<% end %>
 <hr/>
 
 <%= form_for [@post, @comment] do |f| %>

@@ -47,16 +47,17 @@ class UsersController < ApplicationController
 		@user = User.find_by(slug: params[:id])
 	end
 
-	def validate_user
-
-		if !logged_in?
-			flash[:notice] = "Please log in to see profile"
-			redirect_to login_path
-		end
-
-		if @user != current_user
-			flash[:alert] = "Access Denied"
+	
+  def validate_user
+    check_login
+    if @user != current_user
+      flash[:alert] = "Access Denied"
+      redirect_to :back
+    end
+    
+    rescue ActionController::RedirectBackError
 			redirect_to root_path
-		end
-	end
+  end
+
+
 end
