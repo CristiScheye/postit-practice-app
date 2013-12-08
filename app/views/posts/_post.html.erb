@@ -5,9 +5,7 @@
         <i class="icon-chevron-up"></i>
       <% end %>
     <% end %>
-    <br/>
-    <span id="post_<%= post.id %>_votes"><%= pluralize(vote_count(post), 'vote') %></span>
-    <br/>
+    <span id="post_<%= post.id %>_votes"><p class="vote_display"><%= pluralize(vote_count(post), 'vote') %></p></span>
     <% if logged_in? %>
       <%= link_to vote_post_path(post, vote: false), method: 'post' , remote: true do %>
         <i class="icon-chevron-down"></i>
@@ -20,7 +18,7 @@
     <p><%= post.description %></p>
     <p>
       <span class="quiet">posted by </span><%= link_to post.user.username, user_path(post.user) %>
-      <small><%= format_time(post.created_at) %></small>
+      <small><%= time_zone(post.created_at) %></small>
     </p>
     <p><%= link_to "#{post.comments.size} comments", post_path(post) %> </p>
 	</div>

@@ -1,5 +1,6 @@
 <%= render @post.categories %>
 <h3><%= link_to @post.title, @post.url %></h3>
+<p><small>created at <%= time_zone(@post.created_at) %></small></p>
 <p><%= @post.description %> </p>
 <% if admin? || @post.user == current_user %>
   <%= link_to "Edit", edit_post_path(@post) %>

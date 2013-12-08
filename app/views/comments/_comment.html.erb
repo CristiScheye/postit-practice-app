@@ -6,9 +6,7 @@
       <i class="icon-chevron-up"></i>
     <% end %>
   <% end %>
-  <br/>
-  <span id="comment_<%= comment.id %>_votes"><%= pluralize(vote_count(comment), 'vote') %></span>
-  <br/>
+  <span id="comment_<%= comment.id %>_votes"><p class="vote_counter"><%= pluralize(vote_count(comment), 'vote') %></p></span>
   <% if logged_in? %>
     <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post', remote: true do %>
       <i class="icon-chevron-down"></i>
@@ -19,7 +17,7 @@
   <div class="span6 well">
     <p>"<%= comment.body %>" <small>on </small><%= link_to( comment.post.title, post_path(comment.post)) if show_post %></p>
     <p><span class="quiet">by </span><%= link_to comment.user.username , user_path(comment.user) %>
-      <small><%= format_time(comment.created_at) %></small>
+      <small><%= time_zone(comment.created_at) %></small>
   </div>
 
 </div>
