@@ -1,7 +1,6 @@
-if ( <%= !@vote.valid? %> ) {
+<% if @vote.valid? %>
+  $('#post_<%= @post.id %>_votes').html('<%= pluralize(@post.total_votes, "vote") %>');
+<% else %>
   alert('You have already voted for that'); 
-}
-
-$('#post_<%= @post.id %>_votes').html('<%= pluralize(vote_count(@post), "vote") %>');
-
+<% end %>
 

@@ -5,7 +5,7 @@
         <i class="icon-chevron-up"></i>
       <% end %>
     <% end %>
-    <span id="post_<%= post.id %>_votes"><p class="vote_display"><%= pluralize(vote_count(post), 'vote') %></p></span>
+    <p id="post_<%= post.id %>_votes" class="vote_counter"><%= pluralize(post.total_votes, 'vote') %></p>
     <% if logged_in? %>
       <%= link_to vote_post_path(post, vote: false), method: 'post' , remote: true do %>
         <i class="icon-chevron-down"></i>

@@ -6,7 +6,7 @@
       <i class="icon-chevron-up"></i>
     <% end %>
   <% end %>
-  <span id="comment_<%= comment.id %>_votes"><p class="vote_counter"><%= pluralize(vote_count(comment), 'vote') %></p></span>
+  <p id="comment_<%= comment.id %>_votes" class="vote_counter"><%= pluralize(comment.total_votes, 'vote') %></p>
   <% if logged_in? %>
     <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post', remote: true do %>
       <i class="icon-chevron-down"></i>
