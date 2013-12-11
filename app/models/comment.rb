@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  include Voteable
+  include VoteableTestCms
 
 	belongs_to :user
 	belongs_to :post
