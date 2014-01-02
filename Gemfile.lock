@@ -1,8 +1,3 @@
-PATH
-  remote: /home/cristi/Code/voteable-gem
-  specs:
-    voteable_test_cms (0.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -156,4 +151,3 @@ DEPENDENCIES
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
-  voteable_test_cms!
