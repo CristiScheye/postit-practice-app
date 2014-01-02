@@ -1,0 +1,8 @@
+= render 'shared/content_title', title: 'New Category'
+%br
+
+= form_for @category do |f|
+  = f.label :name, 'Category Name'
+  = f.text_field :name
+  %br
+  = f.submit 'Submit New Category', class: 'btn btn-inverse'

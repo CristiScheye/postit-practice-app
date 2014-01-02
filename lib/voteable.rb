@@ -1,4 +1,5 @@
 module Voteable
+
   extend ActiveSupport::Concern
 
   included do 
@@ -16,4 +17,5 @@ module Voteable
   def total_votes
     self.up_votes - self.down_votes
   end
+
 end

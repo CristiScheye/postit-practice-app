@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '=3.0.1'
 gem 'voteable_test_cms', path: "/home/cristi/Code/voteable-gem"
+gem 'haml'
 
 group :doc do
   gem 'sdoc', require: false

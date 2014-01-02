@@ -1,0 +1,23 @@
+- show_post ||= false
+
+.span0.well.text-center
+- if logged_in?
+  = link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post', remote: true do 
+    %i.icon-chevron-up
+
+  %p.vote_counter{id: "comment_#{comment.id}_votes"}= pluralize(comment.total_votes, 'vote')
+
+  - if logged_in?
+    = link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post', remote: true do
+      %i.icon-chevron-down
+
+.row
+  .span6.well
+    -if show_post
+      %p= "\"#{comment.body}\""
+      %small on
+      = link_to(comment.post.title, post_path(comment.post))
+    %p
+      %span.quiet by
+    = link_to(comment.user.username, user_path(comment.user))
+
